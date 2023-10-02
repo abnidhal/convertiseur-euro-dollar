@@ -1,0 +1,43 @@
+# Roadmap - Convertisseur Euro/Dollar
+
+## Phase 1: Mise en Place Initiale
+
+1. Créer un nouveau projet Angular.
+2. Initialiser un composant principal pour le convertisseur Euro/Dollar.
+3. Configurer les dépendances nécessaires, notamment RxJS pour gérer les observables.
+
+## Phase 2: Affichage du Taux de Change
+
+4. Ajouter une section pour afficher le taux de change initial.
+5. Mettre en place la mise à jour automatique toutes les 3 secondes avec une valeur aléatoire.
+
+## Phase 3: Conversion Euro vers Dollar
+
+6. Créer un formulaire pour saisir un montant en EUR.
+7. Afficher la valeur correspondante en USD en utilisant le taux de change.
+
+## Phase 4: Switch de Devise
+
+8. Intégrer un switch pour choisir entre saisir un montant en EUR ou USD.
+9. Assurer la continuité des valeurs lors de l'activation du switch.
+
+## Phase 5: Mise à Jour Automatique
+
+10. Mettre en place un polling régulier pour mettre à jour la valeur en USD en fonction du taux de change.
+
+## Phase 6: Champ de Taux de Change Fixe
+
+11. Ajouter un champ pour fixer un taux de change manuellement.
+
+## Phase 7: Désactivation du Taux de Change Fixe
+
+12. Désactiver le taux de change fixe lors d'une variation de plus de 2% avec le taux réel.
+
+## Phase 8: Tableau d'Historique
+
+13. Créer un tableau pour afficher les 5 dernières demandes de conversion avec leurs détails.
+
+## Phase 9: Optimisation de l'UX
+
+14. Améliorer l'expérience utilisateur pour toutes les fonctionnalités.
+

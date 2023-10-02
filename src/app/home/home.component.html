@@ -1,0 +1,76 @@
+<div class="container py-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="text-center">
+        <h1>Taux de change EUR/USD</h1>
+        <h4>{{ exchangeRate | number : "1.2-3" }}</h4>
+      </div>
+
+      <form [formGroup]="conversionForm" (ngSubmit)="convert()">
+        <div class="row text-center">
+          <div class="col-12 p-4">
+            <label for="fixedRate">Taux de change fixe:</label>
+            <input type="number" id="fixedRate" formControlName="fixedRate" />
+          </div>
+          <div class="col-12 p-4">
+            <label for="amount">Montant:</label>
+            <input type="number" id="amount" formControlName="amount" />
+            <select
+              id="currencySwitch"
+              formControlName="currency"
+              (change)="onChange($event)"
+            >
+              <option *ngFor="let item of options" [value]="item.value">
+                {{ item.devise }}
+              </option>
+            </select>
+          </div>
+
+          <!-- <button type="submit" class="btn btn-primary">Convertir</button> -->
+        </div>
+      </form>
+
+      <h4 *ngIf="convertedAmount === null" class="text-center">
+        Montant en USD : 0.00
+      </h4>
+      <h4 *ngIf="convertedAmount !== null" class="text-center">
+        Montant en
+        <span *ngIf="conversionForm.get('currency')?.value === 'EUR'">
+          USD
+        </span>
+        <span *ngIf="conversionForm.get('currency')?.value === 'USD'">
+          EUR
+        </span>
+        : {{ convertedAmount | number : "1.2-3" }}
+      </h4>
+    </div>
+  </div>
+  <h2 class="my-5">Historique de conversion</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Taux réel</th>
+        <th>Taux saisi</th>
+        <th>Valeur initiale</th>
+        <th>Valeur calculée</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of conversionHistory">
+        <td>{{ item.realRate | number : "1.2-2" }}</td>
+        <td>
+          {{ item.fixedRate }}
+        </td>
+        <td>
+          {{ item.initialAmount | number : "1.2-2" }}
+          {{ item.initialCurrency }}
+        </td>
+        <td>
+          {{ item.convertedAmount | number : "1.2-2" }}
+          {{ item.convertedCurrency }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
